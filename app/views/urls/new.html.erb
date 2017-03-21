@@ -1,0 +1,18 @@
+<h1>Bitly</h1>
+
+<!-- By default it's set to false, which means that remote forms will not include authenticity_token (which will be bad for people without javascript, to override default, add this in config/application.rb -->
+<!--  config.action_view.embed_authenticity_token_in_remote_forms = true
+ -->
+<!-- or add authenticity_token: true option in every form_for/form_tag -->
+
+<!-- remote: true to tell rails that its a remote form -->
+<%= form_for @url, remote: true, authenticity_token: true do |form| %>
+  <%= form.text_field :long_url, placeholder: 'Enter your url' %>
+  <%= form.submit 'yay' %>
+<% end %>
+
+<div id='result'>
+  <% if @short_url %>
+    <p>Your short url is localhost:3000/<%= @short_url %></p>
+  <% end %>
+</div>

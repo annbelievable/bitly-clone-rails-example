@@ -1,0 +1,5 @@
+<% unless @url.valid? %>
+  $('#result').html("<p>" + "Invalid URL" + "</p>")
+<% else %>
+  $('#result').html("<p>" + "localhost:3000/<%= @url.short_url %>" + "</p>")
+<% end %>
